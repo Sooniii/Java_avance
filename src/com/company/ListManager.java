@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionList {
+public class ListManager {
 
     public static List<Praticien> praticienList = new ArrayList<>();
     public static List<Hopital> hopitalList = new ArrayList<>();

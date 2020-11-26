@@ -1,7 +1,9 @@
 package com.company;
 
-public class Patient extends Humain{
+public class Patient{
 
+    String nom;
+    String prenom;
     String numeroSecurite;
     String adresse;
     String numeroTelephone;
