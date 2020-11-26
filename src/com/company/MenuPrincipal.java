@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MenuPrincipal {
 
     private static Scanner sc = new Scanner(System.in);
     private static boolean isActivate = true;
