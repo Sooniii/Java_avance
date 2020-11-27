@@ -125,11 +125,14 @@ public class MenuPrincipal {
             } else {
                 System.out.println("1 - Pour jouer a Colossal Cave");
                 System.out.println("2 - Pour écouter la playlist");
+                System.out.println("3 - Retourner au menu principal");
                 user = sc.next();
-                while (!(user.equals("1") || user.equals("2"))) {
+                while (!(user.equals("1") || user.equals("2") || user.equals("3"))) {
                     user = sc.next();
                 } if (user.equals("1")) {
                     ColossalCave.regle();
+                } else if (user.equals("2")) {
+                    MenuPatient.showMenuPatient();
                 }
             }
         }
