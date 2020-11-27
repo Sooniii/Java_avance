@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.Game.ColossalCave;
+
 import java.util.Scanner;
 
 public class MenuPrincipal {
@@ -121,7 +123,14 @@ public class MenuPrincipal {
                     }
                 }
             } else {
-                System.out.println("Divertissement patient");
+                System.out.println("1 - Pour jouer a Colossal Cave");
+                System.out.println("2 - Pour écouter la playlist");
+                user = sc.next();
+                while (!(user.equals("1") || user.equals("2"))) {
+                    user = sc.next();
+                } if (user.equals("1")) {
+                    ColossalCave.regle();
+                }
             }
         }
         System.out.println("Au revoir et à bientot");
