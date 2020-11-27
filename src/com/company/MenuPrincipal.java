@@ -8,6 +8,7 @@ public class MenuPrincipal {
     private static boolean isActivate = true;
 
     public static void start() {
+
         while (isActivate) {
             System.out.println("        Bienvenue dans le programme de gestion des hopitaux         ");
             System.out.println("-------------------------------------------------------------------");
