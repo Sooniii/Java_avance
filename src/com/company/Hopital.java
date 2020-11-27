@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Hopital {
+public class Hopital{
 
     static Scanner sc = new Scanner(System.in);
 
@@ -15,6 +15,7 @@ public class Hopital {
         this.adresse = adresse;
         this.specialite = specialite;
     }
+
 
     public static void afficherListe(){
         for (int i = 0; i < ListManager.hopitalList.size(); i++){
