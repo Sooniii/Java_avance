@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -8,10 +9,12 @@ import java.util.Scanner;
 
 public class Song {
 
+
     private String title;
     private String artist;
     public static int actualSong = 0;
     public static List<Song> songList = new ArrayList<Song>();
+
 
     public Song(String title, String artist)
     {
@@ -73,13 +76,28 @@ public class Song {
 
     public static void viewSong()
     {
-        Iterator var0 = songList.iterator();
 
-        while(var0.hasNext())
+        try
         {
-            String mySong = (String)var0.next();
-            System.out.println(mySong);
+            FileInputStream fileInputStream = new FileInputStream("Song");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            songList = (List<Song>) objectInputStream.readObject();
+
+            objectInputStream.close();
         }
+        catch (FileNotFoundException fileNotFoundException)
+        {
+            System.out.println("Pas de fichier");
+        }
+        catch (IOException ioException)
+        {
+            System.out.println("IO no good");
+        }
+        catch (ClassNotFoundException classNotFoundException)
+        {
+            System.out.println("Ceci n'est pas une playlist");
+        }
+
     }
 
     public static void nextSong()
@@ -100,6 +118,26 @@ public class Song {
         System.out.println(songList.get(actualSong).getTitle());
     }
 
+    public static void saveSong()
+    {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("Song1");
+            ObjectOutputStream outObjectStream = new ObjectOutputStream(fileOutputStream);
+
+            outObjectStream.writeObject(songList);
+            outObjectStream.flush();
+            outObjectStream.close();
+        }
+        catch (FileNotFoundException fileNotFoundException)
+        {
+            System.out.println("PAs de fichier");
+        }
+        catch (IOException ioException)
+        {
+            System.out.println("Mauvais IO");
+        }
+    }
+
 
     public String getTitle() {
         return title;
@@ -108,7 +146,13 @@ public class Song {
     public String getArtist() {
         return artist;
     }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
 
 
 }
